@@ -49,7 +49,8 @@ resource "kubernetes_manifest" "prometheus_auth" {
 }
 
 data "http" "openid_configuration" {
-  url = "${trimsuffix(var.grafana_oidc_provider["url"], "/")}/.well-known/openid-configuration"
+  url      = "${trimsuffix(var.grafana_oidc_provider["url"], "/")}/.well-known/openid-configuration"
+  insecure = var.openid_configuration_insecure
 
   request_headers = {
     Accept = "application/json"

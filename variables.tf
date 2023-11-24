@@ -49,6 +49,11 @@ variable "head_host" {
   description = "FQDN/IP address of node/LB, where KYPO head services are running"
 }
 
+variable "openid_configuration_insecure" {
+  type    = bool
+  default = false
+}
+
 variable "os_auth_url" {
   type        = string
   description = "OpenStack authentication URL"
