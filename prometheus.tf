@@ -79,7 +79,7 @@ resource "helm_release" "prometheus_stack" {
               "traefik.ingress.kubernetes.io/router.middlewares" = "prometheus-prometheus-ingress-auth@kubernetescrd"
             }
             enabled = true
-            hosts   = ["${var.head_host}"]
+            hosts   = [can(cidrnetmask("${var.head_host}/32")) ? "" : "${var.head_host}"]
             paths   = ["/alerts/"]
           }
           alertmanagerSpec = {
@@ -92,7 +92,7 @@ resource "helm_release" "prometheus_stack" {
           defaultDashboardsEnabled = var.grafana_default_dashboards_enabled
           ingress = {
             enabled = true
-            hosts   = ["${var.head_host}"]
+            hosts   = [can(cidrnetmask("${var.head_host}/32")) ? "" : "${var.head_host}"]
             path    = "/grafana"
           }
           sidecar = {
@@ -137,7 +137,7 @@ resource "helm_release" "prometheus_stack" {
               "traefik.ingress.kubernetes.io/router.middlewares" = "prometheus-prometheus-ingress-auth@kubernetescrd"
             }
             enabled = true
-            hosts   = ["${var.head_host}"]
+            hosts   = [can(cidrnetmask("${var.head_host}/32")) ? "" : "${var.head_host}"]
             paths   = ["/prometheus/"]
           }
           prometheusSpec = {
