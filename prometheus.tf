@@ -130,6 +130,7 @@ resource "helm_release" "prometheus_stack" {
               enabled = false
             }
           }
+          assertNoLeakedSecrets = false
         }
         prometheus = {
           ingress = {
