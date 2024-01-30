@@ -116,15 +116,16 @@ resource "helm_release" "prometheus_stack" {
               token_rotation_interval_minutes          = var.grafana_token_rotation_interval_minutes
             }
             "auth.generic_oauth" = {
-              enabled       = true
-              allow_sign_up = false
-              client_id     = var.grafana_oidc_provider["clientId"]
-              client_secret = var.grafana_oidc_provider["clientSecret"]
-              scopes        = "openid email profile"
-              use_pkce      = true
-              auth_url      = jsondecode(data.http.openid_configuration.response_body)["authorization_endpoint"]
-              token_url     = jsondecode(data.http.openid_configuration.response_body)["token_endpoint"]
-              api_url       = jsondecode(data.http.openid_configuration.response_body)["userinfo_endpoint"]
+              enabled            = true
+              allow_sign_up      = false
+              client_id          = var.grafana_oidc_provider["clientId"]
+              client_secret      = var.grafana_oidc_provider["clientSecret"]
+              scopes             = "openid email profile"
+              use_pkce           = true
+              auth_url           = jsondecode(data.http.openid_configuration.response_body)["authorization_endpoint"]
+              token_url          = jsondecode(data.http.openid_configuration.response_body)["token_endpoint"]
+              api_url            = jsondecode(data.http.openid_configuration.response_body)["userinfo_endpoint"]
+              skip_org_role_sync = true
             }
             "auth.anonymous" = {
               enabled = false
