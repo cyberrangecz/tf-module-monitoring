@@ -95,6 +95,13 @@ resource "helm_release" "prometheus_stack" {
             hosts   = [can(cidrnetmask("${var.head_host}/32")) ? "" : "${var.head_host}"]
             path    = "/grafana"
           }
+          persistence = {
+            enabled = true
+            type = "sts"
+            accessModes = ["ReadWriteOnce"]
+            size= "20Gi"
+            finalizers = ["kubernetes.io/pvc-protection"]
+          }
           sidecar = {
             dashboards = {
               folderAnnotation = "grafana_folder"
