@@ -116,6 +116,9 @@ resource "helm_release" "prometheus_stack" {
               root_url            = "https://%(domain)s/grafana"
               serve_from_sub_path = true
             }
+            database = {
+              wal = true
+            }
             "auth" = {
               login_maximum_inactive_lifetime_duration = var.grafana_login_maximum_inactive_lifetime_duration
               login_maximum_lifetime_duration          = var.grafana_login_maximum_lifetime_duration
