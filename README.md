@@ -46,7 +46,7 @@ No modules.
 | <a name="input_openid_configuration_insecure"></a> [openid\_configuration\_insecure](#input\_openid\_configuration\_insecure) | n/a | `bool` | `false` | no |
 | <a name="input_os_auth_url"></a> [os\_auth\_url](#input\_os\_auth\_url) | OpenStack authentication URL | `string` | n/a | yes |
 | <a name="input_os_region"></a> [os\_region](#input\_os\_region) | OpenStack region | `string` | n/a | yes |
-| <a name="input_value_file"></a> [value\_file](#input\_value\_file) | File containing prometheus jobs | `string` | `"values.yaml"` | no |
+| <a name="input_value_file"></a> [value\_file](#input\_value\_file) | File containing prometheus jobs | `string` | `"values-prometheus-jobs.yaml"` | no |
 
 ## Outputs
 

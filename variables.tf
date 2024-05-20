@@ -67,5 +67,5 @@ variable "os_region" {
 variable "value_file" {
   type        = string
   description = "File containing prometheus jobs"
-  default     = "values.yaml"
+  default     = "values-prometheus-jobs.yaml"
 }
