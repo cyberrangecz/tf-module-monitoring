@@ -96,11 +96,11 @@ resource "helm_release" "prometheus_stack" {
             path    = "/grafana"
           }
           persistence = {
-            enabled = true
-            type = "sts"
+            enabled     = true
+            type        = "sts"
             accessModes = ["ReadWriteOnce"]
-            size= "20Gi"
-            finalizers = ["kubernetes.io/pvc-protection"]
+            size        = "20Gi"
+            finalizers  = ["kubernetes.io/pvc-protection"]
           }
           sidecar = {
             dashboards = {
@@ -168,7 +168,7 @@ resource "helm_release" "prometheus_stack" {
                 }
               }
             }
-            additionalScrapeConfigs = concat(var.prometheus_jobs, [{
+            additionalScrapeConfigs = concat(yamldecode(file(var.value_file)), [{
               job_name        = "federation"
               scrape_interval = "15s"
               scrape_timeout  = "15s"

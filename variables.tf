@@ -64,8 +64,8 @@ variable "os_region" {
   description = "OpenStack region"
 }
 
-variable "prometheus_jobs" {
-  type        = list(any)
-  description = "List of custom prometheus jobs"
-  default     = []
+variable "value_file" {
+  type        = string
+  description = "File containing prometheus jobs"
+  default     = "values.yaml"
 }
