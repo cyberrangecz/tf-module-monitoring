@@ -187,7 +187,7 @@ resource "helm_release" "prometheus_stack" {
               relabel_configs = [
                 {
                   source_labels = ["__meta_openstack_address_pool", "__meta_openstack_instance_name"]
-                  regex         = "kypo-base-net.*man"
+                  regex         = "base-net.*man"
                   action        = "keep"
                 }
               ]
@@ -211,7 +211,7 @@ resource "kubernetes_config_map" "network" {
       grafana_dashboard = "1"
     }
     annotations = {
-      grafana_folder = "KYPO"
+      grafana_folder = "CyberRangeCZ"
     }
   }
 
@@ -231,7 +231,7 @@ resource "kubernetes_config_map" "nodeexporter" {
       grafana_dashboard = "1"
     }
     annotations = {
-      grafana_folder = "KYPO"
+      grafana_folder = "CyberRangeCZ"
     }
   }
 
@@ -251,7 +251,7 @@ resource "kubernetes_config_map" "windowsexporter" {
       grafana_dashboard = "1"
     }
     annotations = {
-      grafana_folder = "KYPO"
+      grafana_folder = "CyberRangeCZ"
     }
   }
 
@@ -271,7 +271,7 @@ resource "kubernetes_config_map" "icmpexporter" {
       grafana_dashboard = "1"
     }
     annotations = {
-      grafana_folder = "KYPO"
+      grafana_folder = "CyberRangeCZ"
     }
   }
 

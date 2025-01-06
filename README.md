@@ -40,9 +40,9 @@ No modules.
 | <a name="input_grafana_default_dashboards_enabled"></a> [grafana\_default\_dashboards\_enabled](#input\_grafana\_default\_dashboards\_enabled) | Install default dashboards | `bool` | `true` | no |
 | <a name="input_grafana_login_maximum_inactive_lifetime_duration"></a> [grafana\_login\_maximum\_inactive\_lifetime\_duration](#input\_grafana\_login\_maximum\_inactive\_lifetime\_duration) | Grafana login\_maximum\_inactive\_lifetime\_duration | `string` | `"7d"` | no |
 | <a name="input_grafana_login_maximum_lifetime_duration"></a> [grafana\_login\_maximum\_lifetime\_duration](#input\_grafana\_login\_maximum\_lifetime\_duration) | Grafana login\_maximum\_lifetime\_duration | `string` | `"30d"` | no |
-| <a name="input_grafana_oidc_provider"></a> [grafana\_oidc\_provider](#input\_grafana\_oidc\_provider) | OIDC provider for OAUTH2 authentication | <pre>object({<br>    url          = string<br>    clientId     = string<br>    clientSecret = string<br>    }<br>  )</pre> | n/a | yes |
+| <a name="input_grafana_oidc_provider"></a> [grafana\_oidc\_provider](#input\_grafana\_oidc\_provider) | OIDC provider for OAUTH2 authentication | <pre>object({<br/>    url          = string<br/>    clientId     = string<br/>    clientSecret = string<br/>    }<br/>  )</pre> | n/a | yes |
 | <a name="input_grafana_token_rotation_interval_minutes"></a> [grafana\_token\_rotation\_interval\_minutes](#input\_grafana\_token\_rotation\_interval\_minutes) | Grafana token\_rotation\_interval\_minutes | `string` | `"10"` | no |
-| <a name="input_head_host"></a> [head\_host](#input\_head\_host) | FQDN/IP address of node/LB, where KYPO head services are running | `string` | n/a | yes |
+| <a name="input_head_host"></a> [head\_host](#input\_head\_host) | FQDN/IP address of node/LB, where head services are running | `string` | n/a | yes |
 | <a name="input_openid_configuration_insecure"></a> [openid\_configuration\_insecure](#input\_openid\_configuration\_insecure) | n/a | `bool` | `false` | no |
 | <a name="input_os_auth_url"></a> [os\_auth\_url](#input\_os\_auth\_url) | OpenStack authentication URL | `string` | n/a | yes |
 | <a name="input_os_region"></a> [os\_region](#input\_os\_region) | OpenStack region | `string` | n/a | yes |

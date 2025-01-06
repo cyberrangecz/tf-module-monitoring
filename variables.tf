@@ -46,7 +46,7 @@ variable "grafana_token_rotation_interval_minutes" {
 
 variable "head_host" {
   type        = string
-  description = "FQDN/IP address of node/LB, where KYPO head services are running"
+  description = "FQDN/IP address of node/LB, where head services are running"
 }
 
 variable "openid_configuration_insecure" {
