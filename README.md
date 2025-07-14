@@ -45,6 +45,7 @@ No modules.
 | <a name="input_head_host"></a> [head\_host](#input\_head\_host) | FQDN/IP address of node/LB, where head services are running | `string` | n/a | yes |
 | <a name="input_openid_configuration_insecure"></a> [openid\_configuration\_insecure](#input\_openid\_configuration\_insecure) | n/a | `bool` | `false` | no |
 | <a name="input_os_auth_url"></a> [os\_auth\_url](#input\_os\_auth\_url) | OpenStack authentication URL | `string` | n/a | yes |
+| <a name="input_os_insecure_skip_verify"></a> [os\_insecure\_skip\_verify](#input\_os\_insecure\_skip\_verify) | Skip TLS verification for OpenStack authentication | `bool` | `false` | no |
 | <a name="input_os_region"></a> [os\_region](#input\_os\_region) | OpenStack region | `string` | n/a | yes |
 | <a name="input_value_file"></a> [value\_file](#input\_value\_file) | File containing prometheus jobs | `string` | `"values-prometheus-jobs.yaml"` | no |
 

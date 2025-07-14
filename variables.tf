@@ -59,6 +59,12 @@ variable "os_auth_url" {
   description = "OpenStack authentication URL"
 }
 
+variable "os_insecure_skip_verify" {
+  type        = bool
+  default     = false
+  description = "Skip TLS verification for OpenStack authentication"
+}
+
 variable "os_region" {
   type        = string
   description = "OpenStack region"

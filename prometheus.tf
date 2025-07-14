@@ -177,8 +177,11 @@ resource "helm_release" "prometheus_stack" {
               metrics_path    = "/federate"
               params          = { "match[]" = ["{__name__=~\".+\"}"] }
               openstack_sd_configs = [{
-                role                          = "instance"
-                identity_endpoint             = var.os_auth_url
+                role              = "instance"
+                identity_endpoint = var.os_auth_url
+                tls_config = {
+                  insecure_skip_verify = var.os_insecure_skip_verify
+                }
                 region                        = var.os_region
                 application_credential_id     = var.application_credential_id
                 application_credential_secret = var.application_credential_secret
