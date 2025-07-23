@@ -30,7 +30,7 @@ resource "kubernetes_manifest" "prometheus_secret" {
 
 resource "kubernetes_manifest" "prometheus_auth" {
   manifest = {
-    "apiVersion" = "traefik.containo.us/v1alpha1"
+    "apiVersion" = "traefik.io/v1alpha1"
     "kind"       = "Middleware"
     "metadata" = {
       "name"      = "prometheus-ingress-auth"
