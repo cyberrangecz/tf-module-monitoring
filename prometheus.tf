@@ -65,10 +65,10 @@ resource "helm_release" "prometheus_stack" {
   create_namespace = true
   wait             = true
 
-  set {
+  set = [{
     name  = "prometheus-node-exporter.hostNetwork"
     value = false
-  }
+  }]
 
   values = [
     jsonencode(
