@@ -1,4 +1,4 @@
-resource "kubernetes_namespace" "prometheus" {
+resource "kubernetes_namespace_v1" "prometheus" {
   metadata {
     name = "prometheus"
   }
@@ -24,7 +24,7 @@ resource "kubernetes_manifest" "prometheus_secret" {
     }
   }
   depends_on = [
-    kubernetes_namespace.prometheus
+    kubernetes_namespace_v1.prometheus
   ]
 }
 
@@ -44,7 +44,7 @@ resource "kubernetes_manifest" "prometheus_auth" {
     }
   }
   depends_on = [
-    kubernetes_namespace.prometheus
+    kubernetes_namespace_v1.prometheus
   ]
 }
 
@@ -202,11 +202,11 @@ resource "helm_release" "prometheus_stack" {
   ]
 
   depends_on = [
-    kubernetes_namespace.prometheus
+    kubernetes_namespace_v1.prometheus
   ]
 }
 
-resource "kubernetes_config_map" "network" {
+resource "kubernetes_config_map_v1" "network" {
   metadata {
     name      = "network-availability"
     namespace = "prometheus"
@@ -222,11 +222,11 @@ resource "kubernetes_config_map" "network" {
     "network-availability.json" = "${file("${path.module}/grafana-dashboards/network-availability.json")}"
   }
   depends_on = [
-    kubernetes_namespace.prometheus
+    kubernetes_namespace_v1.prometheus
   ]
 }
 
-resource "kubernetes_config_map" "nodeexporter" {
+resource "kubernetes_config_map_v1" "nodeexporter" {
   metadata {
     name      = "node-exporter"
     namespace = "prometheus"
@@ -242,11 +242,11 @@ resource "kubernetes_config_map" "nodeexporter" {
     "node-exporter.json" = "${file("${path.module}/grafana-dashboards/node-exporter.json")}"
   }
   depends_on = [
-    kubernetes_namespace.prometheus
+    kubernetes_namespace_v1.prometheus
   ]
 }
 
-resource "kubernetes_config_map" "windowsexporter" {
+resource "kubernetes_config_map_v1" "windowsexporter" {
   metadata {
     name      = "windows-exporter"
     namespace = "prometheus"
@@ -262,11 +262,11 @@ resource "kubernetes_config_map" "windowsexporter" {
     "windows-exporter.json" = "${file("${path.module}/grafana-dashboards/windows-exporter.json")}"
   }
   depends_on = [
-    kubernetes_namespace.prometheus
+    kubernetes_namespace_v1.prometheus
   ]
 }
 
-resource "kubernetes_config_map" "icmpexporter" {
+resource "kubernetes_config_map_v1" "icmpexporter" {
   metadata {
     name      = "icmp-exporter"
     namespace = "prometheus"
@@ -282,6 +282,6 @@ resource "kubernetes_config_map" "icmpexporter" {
     "icmp-exporter.json" = "${file("${path.module}/grafana-dashboards/icmp-exporter.json")}"
   }
   depends_on = [
-    kubernetes_namespace.prometheus
+    kubernetes_namespace_v1.prometheus
   ]
 }
