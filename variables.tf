@@ -70,6 +70,12 @@ variable "os_region" {
   description = "OpenStack region"
 }
 
+variable "prometheus_stack_version" {
+  type        = string
+  description = "kube-prometheus-stack chart version"
+  default     = "93.5.0"
+}
+
 variable "value_file" {
   type        = string
   description = "File containing prometheus jobs"
